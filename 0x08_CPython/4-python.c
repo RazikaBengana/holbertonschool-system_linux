@@ -24,28 +24,28 @@
 
 void print_python_string(PyObject *p)
 {
-    wchar_t *wchar_buf = NULL;
+	wchar_t *wchar_buf = NULL;
 
-    printf("[.] string object info\n");
+	printf("[.] string object info\n");
 
-    if (!PyUnicode_Check(p) || !((PyASCIIObject *)p)->state.ready)
-    {
-        printf("  [ERROR] Invalid String Object\n");
-        return;
-    }
+	if (!PyUnicode_Check(p) || !((PyASCIIObject *)p)->state.ready)
+	{
+		printf("  [ERROR] Invalid String Object\n");
+		return;
+	}
 
-    printf("  type: %s%s\n",
-           ((PyASCIIObject *)p)->state.compact ? "compact " : "",
-           ((PyASCIIObject *)p)->state.ascii ? "ascii" : "unicode object");
+	printf("  type: %s%s\n",
+	       ((PyASCIIObject *)p)->state.compact ? "compact " : "",
+	       ((PyASCIIObject *)p)->state.ascii ? "ascii" : "unicode object");
 
-    printf("  length: %li\n",
-           ((PyASCIIObject *)(p))->length);
+	printf("  length: %li\n",
+	       ((PyASCIIObject *)(p))->length);
 
-    wchar_buf = PyUnicode_AsWideCharString(p, NULL);
+	wchar_buf = PyUnicode_AsWideCharString(p, NULL);
 
-    if (wchar_buf != NULL)
-    {
-        printf("  value: %ls\n", wchar_buf);
-        PyMem_Free(wchar_buf);
-    }
+	if (wchar_buf != NULL)
+	{
+		printf("  value: %ls\n", wchar_buf);
+		PyMem_Free(wchar_buf);
+	}
 }
