@@ -1,5 +1,5 @@
-#ifndef SOCKET_H
-#define SOCKET_H
+#ifndef SOCKET2_H
+#define SOCKET2_H
 
 
 #include <stdio.h>
@@ -80,4 +80,4 @@ char *trim(char *str);
 
 
 
-#endif /* SOCKET_H */
+#endif /* SOCKET2_H */
